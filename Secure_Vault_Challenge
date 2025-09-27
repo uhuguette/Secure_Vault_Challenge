@@ -1,0 +1,18 @@
+#!/bin/bash
+Vault="$secure/secure_vault"
+if [[ ! -d "$Vault" ]];
+then
+echo "error: secure_vault doent exist!!"
+exit 1
+fi
+echo "Default permissions"
+ls -l "$Vault"
+read -p "Do you want to update permissions? Yes or No: " Input
+if [[ "$Input" == yes ]];then
+read -p "Enter permissions for keys.txt: " keys
+read -p "Enter permissions for secrets.txt: " secrets
+read -p "Enter permissions for logs.txt: " logs
+if [[ "$keys" == ! ]]; then
+
+
+
