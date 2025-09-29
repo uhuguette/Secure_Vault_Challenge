@@ -8,7 +8,7 @@ if [ ! -d "$Vault" ]; then
 	echo "Error: secure_vault not found"
 	exit 1
 fi
- 
+
 while true; do
 	echo "SECURE VAULT OPERATIONS"
 	echo "                       "
@@ -29,8 +29,8 @@ while true; do
 		2)
 			read -p "enter secret to update: " old
 			read -p "enter new secret: " new
-			if grep -q "$old" "secret_file"; then
-				sed -i "s/$old/$new" "secret_file"
+			if grep -q "$old" "$secret_file"; then
+				sed -i "s/$old/$new" "$secret_file"
 				echo "secret updated✅"
 			else 
 			  echo "no match found"
