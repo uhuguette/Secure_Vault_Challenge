@@ -3,7 +3,7 @@
 Vault="$secure/secure_vault"
 
 if [ ! -d "$Vault" ]; then
-    echo " Error: Secure Vault not foun"
+	echo "secure vault not found"
     exit 1
 fi
 echo "        Secure Vault Monitoring          "
@@ -21,5 +21,12 @@ echo "Size: $size bytes"
 echo "Last modified: $lastmod"
 echo "Permissions: $perms($permnum)"
 echo 
+
+if [ "$permnum" -gt 644 ]; then
+	echo "⚠ Security Risk Detected" >> "$filename"
+fi
+echo >> "$filename"
 fi
 done
+
+echo "✅ Vault report created at: $filename"
